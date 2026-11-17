@@ -1,0 +1,132 @@
+############################################
+# Build / Maven
+############################################
+HELP.md
+target/
+!**/src/main/**/target/
+!**/src/test/**/target/
+.mvn/wrapper/maven-wrapper.jar
+*.class
+*.jar
+*.war
+*.ear
+
+############################################
+# Segurança: segredos e credenciais
+# NUNCA versionar senhas, tokens ou chaves
+############################################
+.env
+.env.*
+!.env.example
+*.env
+
+# Configurações locais com credenciais reais
+application-local.properties
+application-local.yml
+application-local.yaml
+application-dev.properties
+application-dev.yml
+application-prod.properties
+application-prod.yml
+src/main/resources/secrets/
+
+# Chaves e certificados
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.truststore
+*.crt
+*.cer
+id_rsa*
+id_ed25519*
+
+# Arquivos de credenciais comuns
+credentials.json
+secrets.json
+*.secret
+
+############################################
+# Banco de dados / Docker (dados locais)
+############################################
+postgres-data/
+pgdata/
+data/
+*.db
+*.sqlite
+*.sql.gz
+*.dump
+dump/
+backup/
+
+############################################
+# Logs e temporários
+############################################
+logs/
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+*~
+
+############################################
+# Claude
+############################################
+CLAUDE.md
+CLAUDE.local.md
+.claude/settings.local.json
+
+############################################
+# IDEs
+############################################
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+!.vscode/extensions.json
+
+############################################
+# Sistema operacional
+############################################
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Linux
+.directory
+.Trash-*
