@@ -1,6 +1,7 @@
-package domain.entity;
+package io.github.myckamorais.service_desk.domain.entities;
 
 
+import io.github.myckamorais.service_desk.domain.enums.UserRole;
 import jakarta.persistence.*;
 
 import java.io.Serial;
@@ -19,18 +20,22 @@ public class User implements Serializable {
     private Long id;
 
     private String name;
-    private String emailUnique;
-    private String profile;
+
+    @Column(nullable = false, unique = true)
+    private String email;
+
+    @Enumerated(EnumType.STRING)
+    private UserRole role;
     private Boolean active;
 
     public User(){
     }
 
-    public User(Long id, String name, String emailUnique, String profile, Boolean active) {
+    public User(Long id, String name, String email, UserRole role, Boolean active) {
         this.id = id;
         this.name = name;
-        this.emailUnique = emailUnique;
-        this.profile = profile;
+        this.email = email;
+        this.role = role;
         this.active = active;
     }
 
@@ -50,20 +55,20 @@ public class User implements Serializable {
         this.name = name;
     }
 
-    public String getEmailUnique() {
-        return emailUnique;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmailUnique(String emailUnique) {
-        this.emailUnique = emailUnique;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getProfile() {
-        return profile;
+    public UserRole getRole() {
+        return role;
     }
 
-    public void setProfile(String profile) {
-        this.profile = profile;
+    public void setRole(UserRole role) {
+        this.role = role;
     }
 
     public Boolean getActive() {

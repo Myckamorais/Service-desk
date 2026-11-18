@@ -1,4 +1,4 @@
-package domain.entity;
+package io.github.myckamorais.service_desk.domain.entities;
 
 import jakarta.persistence.*;
 
@@ -12,15 +12,16 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nameUnique;
+    @Column(nullable = false, unique = true)
+    private String name;
     private String description;
 
     public Category(){
     }
 
-    public Category(Long id, String nameUnique, String description) {
+    public Category(Long id, String name, String description) {
         this.id = id;
-        this.nameUnique = nameUnique;
+        this.name = name;
         this.description = description;
     }
 
@@ -32,12 +33,12 @@ public class Category {
         this.id = id;
     }
 
-    public String getNameUnique() {
-        return nameUnique;
+    public String getName() {
+        return name;
     }
 
-    public void setNameUnique(String nameUnique) {
-        this.nameUnique = nameUnique;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {
